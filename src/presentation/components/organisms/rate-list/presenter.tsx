@@ -1,23 +1,13 @@
-import { useEffect } from "react";
-import { RateEntity } from "../../../../bll/entities";
-import { useRequest } from "../../../hooks";
+import { useRates } from "../../../../bll/use-cases";
 import RateListView from "./view";
 
-interface Props {
-  getRates: () => Promise<RateEntity[]>;
-}
-
-const RateListPresenter = ({ getRates }: Props) => {
-  const { data, loading, error, execute } = useRequest({ request: getRates });
-
-  useEffect(() => {
-    execute();
-  }, [execute]);
+const RateListPresenter = () => {
+  const { data, loading, error } = useRates();
 
   return (
     <RateListView
       loading={loading}
-      error={error}
+      error={error.message}
       items={
         data?.map(({ currency, rate }) => ({
           title: rate,

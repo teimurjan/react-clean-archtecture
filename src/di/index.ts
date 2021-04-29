@@ -1,1 +1,1 @@
-export { useDI, DIContextProvider } from "./context";
+export { useDI, DIProvider } from "./context";

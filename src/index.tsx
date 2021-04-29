@@ -1,28 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { GraphQLClient, RateFetcher } from "./communication";
-import { RateService } from "./bll/services";
-import { DIContextProvider } from "./di";
+import { GraphQLProvider } from "./communication";
 import { BLProvider } from "./bl/react";
-
-const apolloClient = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
-  cache: new InMemoryCache(),
-});
-const graphqlClient = new GraphQLClient(apolloClient);
-const rateFetcher = new RateFetcher(graphqlClient);
-const rateService = new RateService(rateFetcher);
+import { DIProvider } from "./di";
 
 ReactDOM.render(
   <React.StrictMode>
-    <DIContextProvider value={{ rateService }}>
+    <GraphQLProvider>
       <BLProvider>
-        <App />
+        <DIProvider>
+          <App />
+        </DIProvider>
       </BLProvider>
-    </DIContextProvider>
+    </GraphQLProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
