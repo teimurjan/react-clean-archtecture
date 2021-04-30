@@ -1,4 +1,4 @@
-import { useQuery } from "../..";
+import { useQuery } from "../../graphql";
 import { RateEntity } from "../../../bll/entities";
 import { GET_RATES_QUERY } from "./queries";
 
