@@ -1,48 +1,108 @@
 {
-  "name": "poc",
-  "version": "0.1.0",
-  "private": true,
+  "name": "demo",
+  "description": "",
+  "version": "1.0.0",
   "dependencies": {
-    "@apollo/client": "^3.3.15",
-    "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "graphql": "^15.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.3",
-    "react-scripts": "4.0.3",
-    "redux": "^4.0.5",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "react-router-dom": "^5.2.0",
+    "tailwindcss": "^2.1.2"
   },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@svgr/webpack": "^5.5.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.8",
+    "@types/autoprefixer": "^10.2.0",
+    "@types/copy-webpack-plugin": "^8.0.0",
+    "@types/dotenv-webpack": "^7.0.1",
+    "@types/eslint": "^7.2.10",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/html-webpack-plugin": "^3.2.5",
+    "@types/jest": "^26.0.23",
+    "@types/mini-css-extract-plugin": "^1.4.2",
+    "@types/node": "^15.0.1",
+    "@types/node-sass": "^4.11.1",
+    "@types/optimize-css-assets-webpack-plugin": "^5.0.3",
+    "@types/prettier": "^2.2.3",
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
+    "@types/terser-webpack-plugin": "^5.0.3",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^3.11.3",
+    "@types/webpack-merge": "^5.0.0",
+    "autoprefixer": "^10.2.5",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.4",
+    "css-minimizer-webpack-plugin": "^2.0.0",
+    "dotenv-webpack": "^7.0.2",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.2.13",
+    "postcss-import": "^14.0.1",
+    "postcss-loader": "^5.2.0",
+    "prettier": "^2.2.1",
+    "react-refresh": "^0.10.0",
+    "react-refresh-typescript": "^2.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged --verbose"
+    }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ]
+  },
+  "main": "src/index.tsx",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
+    "build-staging": "NODE_ENV=production webpack --config config/webpack.stag.js",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint src --ext .js,.jsx && yarn prettify",
+    "lint-fix": "eslint src --ext .js,.jsx --fix && yarn prettify",
+    "predeploy": "npm run build",
+    "prettify": "yarn prettier \"**/*.*(js|jsx)\" --ignore-path=.prettierignore --write",
+    "start": "webpack serve --config config/webpack.dev.js",
+    "test": "jest"
   }
 }
