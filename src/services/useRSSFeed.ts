@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { fetchData } from '../lib/fetchData'
 import get from 'lodash/fp/getOr'
 import flow from 'lodash/fp/flow'
 import map from 'lodash/fp/map'
@@ -11,12 +10,14 @@ import stubTrue from 'lodash/fp/stubTrue'
 import first from 'lodash/fp/first'
 import { formatDate } from '../formatters/formatDate'
 import { RSSItemProps } from 'src/components/item-renderers/RSSItem'
+import { getRSSFeed } from './getRSSFeed'
 
 // text sanitization
 const stripHtml = replace(/(<([^>]+)>)/gi, '')
 const stripHtmlEntities = replace(/&#?[A-z0-9]*;/gi, '')
 const sanitizeText = flow(stripHtml, stripHtmlEntities)
 
+// transducer formatting server data to format consumed by view
 const prepRSSFeed: (data: unknown) => RSSItemProps[] = flow(
   get([], 'data.rss.rss2Feed.items'),
   map((entry) => ({
@@ -26,32 +27,9 @@ const prepRSSFeed: (data: unknown) => RSSItemProps[] = flow(
   }))
 )
 
-const getFeed = async (variables: { url: string }) => {
-  const GET_FEEDS_QUERY = `
-  query GetFeeds($url: string) {
-    rss {
-      rss2Feed(url: $url) {
-        items {
-          title
-          description
-          link
-          pubDate
-        }
-      }
-    }
-  }
-`
-
-  const results = await fetchData(GET_FEEDS_QUERY, {
-    variables: variables,
-  })
-
-  return results
-}
-
-export const useRSSFeed: (url: string) => [RSSItemProps[], boolean, string, number] = (
-  url
-) => {
+export const useRSSFeed: (
+  url: string
+) => [RSSItemProps[], boolean, string, number] = (url) => {
   const [retry, setRetry] = useState(0)
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
@@ -88,7 +66,7 @@ export const useRSSFeed: (url: string) => [RSSItemProps[], boolean, string, numb
         setData,
         // reset retry counter
         () => setRetry(0)
-      )
+      ),
     ],
   ])
 
@@ -99,7 +77,7 @@ export const useRSSFeed: (url: string) => [RSSItemProps[], boolean, string, numb
     setLoading(true)
 
     // fetch feed data
-    getFeed({ url })
+    getRSSFeed({ url })
       // handle graphql error or success response
       .then(setDataOrError)
       // disable loading state
