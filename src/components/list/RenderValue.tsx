@@ -1,9 +1,9 @@
 import React from 'react'
-import { CurrencyRenderer } from '../item-renderers/CurrencyRenderer'
-import { DateRenderer } from '../item-renderers/DateRenderer'
-import { StringRenderer } from '../item-renderers/StringRenderer'
-import { NumberRenderer } from '../item-renderers/NumberRenderer'
-import { HighlightedRenderer } from '../item-renderers/HighlightedRenderer'
+import { CurrencyRenderer } from '../value-renderers/CurrencyRenderer'
+import { DateRenderer } from '../value-renderers/DateRenderer'
+import { StringRenderer } from '../value-renderers/StringRenderer'
+import { NumberRenderer } from '../value-renderers/NumberRenderer'
+import { HighlightedRenderer } from '../value-renderers/HighlightedRenderer'
 
 const renderers = {
   date: DateRenderer,

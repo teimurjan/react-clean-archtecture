@@ -17,7 +17,7 @@ export default [
       type: 'number',
       editable: false,
       content: {
-        value: 1023495,
+        value: -1023495,
       },
     },
   },
