@@ -19,5 +19,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
         ssh-key: ${{ secrets.DEPLOY_KEY }}
-        branch: feat/more-complex-example
+        branch: gh-pages
         folder: dist
