@@ -1,5 +1,5 @@
+import * as React from 'react'
 import { UserCard } from '../components/item-renderers/UserCard'
-import React, { useState } from 'react'
 import { useLoading } from '../hooks/useLoading'
 import { fetchUsers } from '../services/fetchUsers'
 

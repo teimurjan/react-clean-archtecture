@@ -9,7 +9,7 @@ import has from 'lodash/fp/has'
 import stubTrue from 'lodash/fp/stubTrue'
 import first from 'lodash/fp/first'
 import { formatDate } from '../formatters/formatDate'
-import { RSSItemProps } from 'src/components/item-renderers/RSSItem'
+import { RSSItemProps } from '../components/item-renderers/RSSItem'
 import { fetchRSSFeed } from '../services/fetchRSSFeed'
 
 // text sanitization

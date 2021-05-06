@@ -1,8 +1,5 @@
 import React from 'react'
 
-// Input
-const input: number = 17883294145
-
 // Custom types
 enum Direction {
   left,
@@ -81,9 +78,6 @@ const insertAtEvery = (input: string) => (character: string) => (
 ): string => {
   if (input === '') return input
 
-  const amountOfCharacters: number = input.length
-  const amountOfSplits: number = amountOfCharacters / interval
-
   const parts: List<string> = splitEvery(input)(interval)
   const result: string = join(parts)(',')
 
@@ -145,4 +139,6 @@ const pull = (input: string) => (index: number) => (
   return input[0] + pull(pull(input)(1)())(index)(amount - 1)
 }
 
-export const CurrencyRenderer = ({ value, currency, className }) => <strong {...{ className }}>{formatCurrency(value)(currency)}</strong>
+export const CurrencyRenderer = ({ value, currency, className }) => (
+  <strong {...{ className }}>{formatCurrency(value)(currency)}</strong>
+)

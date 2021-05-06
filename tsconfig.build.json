@@ -1,18 +1,25 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es5",
     "sourceMap": true,
-    "noEmitOnError": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "module": "es6",
     "moduleResolution": "node",
-    "types": ["node"],
-    "rootDir": "./src",
-    "importHelpers": true,
-    "lib": ["es2018", "dom"],
-    "jsx": "react"
+    "experimentalDecorators": true,
+    "declaration": false,
+    "removeComments": true,
+    "noImplicitThis": false,
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "strict": false,
+    "outDir": "build",
+    "lib": ["es6", "es7", "dom"],
+    "baseUrl": "src",
+    "paths": {
+      "app/*": ["./app/*"]
+    }
   },
   "exclude": ["node_modules", "dist", "application-ui", "marketing", "config"]
 }

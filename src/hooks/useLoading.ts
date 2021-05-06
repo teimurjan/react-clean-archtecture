@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { fetchUsers } from 'src/services/fetchUsers'
 
 export const useLoading = (
   fn: () => Promise<any>,

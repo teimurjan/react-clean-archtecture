@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { SelectorIcon } from '@heroicons/react/solid'
 
 export type Option = { label: string; value: string; disabled?: boolean }
 
