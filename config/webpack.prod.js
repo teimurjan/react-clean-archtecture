@@ -16,9 +16,6 @@ module.exports = merge(common, {
     filename: 'js/[name].[contenthash].bundle.js',
   },
   plugins: [
-    new Dotenv({
-      path: './.env.production',
-    }),
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
