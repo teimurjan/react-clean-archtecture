@@ -1,6 +1,6 @@
 import React from 'react'
 import { List } from '../components/list/List'
-import { usePersonData } from '../services/usePersonData'
+import { usePersonData } from '../hooks/usePersonData'
 /*
 let _data = data.reduce((acc, row, index) => {
     const rowNum =

@@ -4,7 +4,7 @@ import React, { Component, FC, FunctionComponent, useState } from 'react'
 import { RSSItem } from './components/item-renderers/RSSItem'
 import { Select, Option } from './components/forms/Select'
 // import { PersonListContainer } from './containers/PersonListContainer'
-import { useRSSFeed } from './services/useRSSFeed'
+import { useRSSFeed } from './hooks/useRSSFeed'
 import feeds from './data/feeds'
 
 const App = () => {

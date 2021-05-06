@@ -10,7 +10,7 @@ import stubTrue from 'lodash/fp/stubTrue'
 import first from 'lodash/fp/first'
 import { formatDate } from '../formatters/formatDate'
 import { RSSItemProps } from 'src/components/item-renderers/RSSItem'
-import { getRSSFeed } from './getRSSFeed'
+import { getRSSFeed } from '../services/getRSSFeed'
 
 // text sanitization
 const stripHtml = replace(/(<([^>]+)>)/gi, '')
