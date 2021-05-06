@@ -1,9 +1,8 @@
 {
   "extends": "./tsconfig.build.json",
-
   "compilerOptions": {
     "module": "ESNext",
     "experimentalDecorators": true,
-    "baseUrl": "."
+    "baseUrl": "./src"
   }
 }

@@ -10,7 +10,7 @@ import stubTrue from 'lodash/fp/stubTrue'
 import first from 'lodash/fp/first'
 import { formatDate } from '../formatters/formatDate'
 import { RSSItemProps } from 'src/components/item-renderers/RSSItem'
-import { getRSSFeed } from '../services/getRSSFeed'
+import { fetchRSSFeed } from '../services/fetchRSSFeed'
 
 // text sanitization
 const stripHtml = replace(/(<([^>]+)>)/gi, '')
@@ -49,8 +49,6 @@ export const useRSSFeed: (
         get('', 'message'),
         // set error message
         setError,
-        // reset data
-        () => setData([]),
         // retry data fetching every 2.5 seconds,
         // but do it 3 times at most for single URL
         () => retry < 2 && setTimeout(() => setRetry(retry + 1), 2500)
@@ -73,11 +71,12 @@ export const useRSSFeed: (
   useEffect(() => {
     // reset error
     setError(null)
+    setData([])
     // enable loading state
     setLoading(true)
 
     // fetch feed data
-    getRSSFeed({ url })
+    fetchRSSFeed({ url })
       // handle graphql error or success response
       .then(setDataOrError)
       // disable loading state

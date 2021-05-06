@@ -1,6 +1,6 @@
-import { fetchData } from '../lib/fetchData';
+import { fetchOneGraph } from '../lib/fetchOneGraph';
 
-export const getRSSFeed = async (variables: { url: string; }) => {
+export const fetchRSSFeed = async (variables: { url: string; }) => {
   const GET_FEEDS_QUERY = `
   query GetFeeds($url: string) {
     rss {
@@ -16,7 +16,7 @@ export const getRSSFeed = async (variables: { url: string; }) => {
   }
 `;
 
-  const results = await fetchData(GET_FEEDS_QUERY, {
+  const results = await fetchOneGraph(GET_FEEDS_QUERY, {
     variables: variables,
   });
 

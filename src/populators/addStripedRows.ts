@@ -20,4 +20,6 @@ const addStripedRowsIteratee = (acc, row, index) => {
 }
 
 export const addStripedRows = (data) =>
-  data.reduce(addStripedRowsIteratee, []).map(cleanUpRelativeRow)
+  data
+    .reduce(addStripedRowsIteratee, [])
+    .map(cleanUpRelativeRow)

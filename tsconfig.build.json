@@ -9,14 +9,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "types": ["node"],
+    "rootDir": "./src",
+    "importHelpers": true,
+    "alias": { "~": "./src" },
     "lib": ["es2018", "dom"],
     "jsx": "react"
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "application-ui",
-    "marketing",
-    "config"
-  ]
+  "exclude": ["node_modules", "dist", "application-ui", "marketing", "config"]
 }

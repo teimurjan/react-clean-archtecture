@@ -1,12 +1,12 @@
 import { auth, APP_ID } from './auth'
 
-export function fetchData(
+export const fetchOneGraph = (
   query: string,
   {
     variables,
     operationName,
   }: { variables?: unknown; operationName?: string } = {}
-) {
+) => {
   return fetch(`https://serve.onegraph.com/graphql?app_id=${APP_ID}`, {
     method: 'POST',
     headers: { ...auth.authHeaders() },

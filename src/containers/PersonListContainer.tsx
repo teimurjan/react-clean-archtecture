@@ -1,3 +1,4 @@
+import { Loading } from '../components/state/Loading'
 import React from 'react'
 import { List } from '../components/list/List'
 import { usePersonData } from '../hooks/usePersonData'
@@ -20,5 +21,10 @@ let _data = data.reduce((acc, row, index) => {
 */
 export const PersonListContainer = () => {
   const [data, loading] = usePersonData()
-  return <div>{loading ? 'Loading...' : <List data={data} />}</div>
+  return (
+    <section>
+      <h1 className='mt-10 text-5xl font-thin text-center'>Striped Table</h1>
+      {loading ? <Loading /> : <List data={data} />}
+    </section>
+  )
 }

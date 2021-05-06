@@ -9,14 +9,18 @@ export type RSSItemProps = {
 
 export const RSSItem = ({ title, description, link, date }: RSSItemProps) => {
   return (
-    <div className='flex flex-col p-6 rounded-lg bg-gray-50'>
-      <time className='mb-4 text-xs font-medium tracking-widest text-blue-500 title-font'>
-        {date}
-      </time>
-      <h2 className='mb-4 text-lg font-medium text-gray-900 title-font'>
-        <a href={link}>{title}</a>
-      </h2>
-      <p className='text-base leading-relaxed line-clamp-4'>{description}</p>
-    </div>
+    <article className='h-full p-6 transition-colors rounded-lg bg-gray-50 hover:bg-blue-200'>
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <time className='text-xs font-medium tracking-wide text-blue-500'>
+          {date}
+        </time>
+        <h2 className='mt-2 text-lg font-bold leading-tight text-gray-900'>
+          {title}
+        </h2>
+        <p className='mt-5 text-sm leading-relaxed line-clamp-4'>
+          {description}
+        </p>
+      </a>
+    </article>
   )
 }

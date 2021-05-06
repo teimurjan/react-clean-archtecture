@@ -8,14 +8,22 @@ type SelectProps = {
   options: Option[]
   value: Option
   onChange: (value: unknown) => void
+  className: string
 }
 
-export const Select = ({ options, value, onChange }: SelectProps) => {
+export const Select = ({
+  options,
+  value,
+  onChange,
+  className,
+}: SelectProps) => {
   return (
     <Listbox onChange={onChange} value={value.value}>
       {({ open }) => (
         <>
-          <Listbox.Button className='relative w-full py-2 pl-3 pr-10 text-left text-white bg-blue-700 rounded-lg shadow-md cursor-default border-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm'>
+          <Listbox.Button
+            className={`relative w-full py-2 pl-3 pr-10 text-left text-white bg-blue-700 rounded-lg shadow-md cursor-default border-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm ${className}`}
+          >
             <span className='block truncate'>{value.label}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
               <SelectorIcon
