@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
-    publicPath: '/react-clean-architecture/',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.mjs', '.ts', '.tsx'],
