@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": false,
+    "removeComments": true,
+    "noImplicitThis": false,
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "strict": false,
+    "outDir": "build",
+    "lib": ["es6", "es7", "dom"],
+    "paths": {
+      "src/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "application-ui", "marketing", "config"]
+}
